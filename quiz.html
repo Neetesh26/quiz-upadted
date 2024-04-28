@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quiz website</title>
+    <style>
+        * {
+            margin: 0%;
+            padding: 0%;
+            box-sizing: border-box;
+            /* font-family: gilroy; */
+        }
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+            /* background-color:rgb(255, 255, 255); */
+            background-image: url(kbc\ 1.jpg);
+            background-size: cover;
+            object-fit: cover;
+
+        }
+
+        header {
+            /* position: fixed; */
+            background-color: #ffffff;
+            height: 90px;
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            gap: 200px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.158);
+        }
+
+        .logo {
+            /* background-color: azure; */
+            text-transform: capitalize;
+        }
+
+        .logo h2 {
+            font-size: 40px;
+            transition: all ease .5s;
+            cursor: pointer;
+            color: black;
+            font-weight: 500;
+        }
+
+        .logo h2:hover {
+            scale: .9;
+            color: rgba(0, 0, 0, 0.61);
+        }
+
+        .logo h2 #dot {
+            color: rgb(211, 60, 60);
+            font-weight: 600;
+        }
+
+        .item1 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 60px;
+            padding: 5px;
+            height: 100%;
+        }
+
+        .item1 a {
+            text-decoration: none;
+            color: rgba(0, 0, 0, 0.733);
+
+        }
+
+        .item1 a h3 {
+            text-transform: capitalize;
+            font-size: 18px;
+            transition: all ease .2s;
+
+        }
+
+        .item1 a>h3:hover {
+            border-bottom: 2px solid  rgb(211, 60, 60);
+            scale: 1.1;
+            color: rgb(211, 60, 60);
+            font-weight: 500;
+        }
+       
+
+        .app {
+            position: absolute;
+            top: 310px;
+            left: 350px;
+            /* background-color: #ad4343; */
+            /* background: transparent; */
+            /* width: 800px; */
+            /* height: 400px; */
+            /* padding-top: 200px; */
+            max-width: 650px;
+            border-radius: 10px;
+            padding: 30px;
+
+        }
+
+        .app h1 {
+            font-size: 25px;
+            color: #001e4d;
+            font-weight: 600;
+            border-bottom: 1px solid #333;
+            padding-bottom: 30px;
+            text-transform: capitalize;
+        }
+
+        .quiz {
+            padding: 20px 0;
+        }
+
+        .quiz h2 {
+            font-size: 18px;
+            color: #001e4d;
+            font-weight: 600;
+            text-transform: capitalize;
+            color: rgb(255, 255, 255);
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* text-transform: uppercase; */
+            background-color: rgba(27, 1, 100, 0.952);
+            border: 2px solid yellow;
+            border-radius: 40px;
+            /* margin-left: 250px;
+            margin-right: 250px; */
+            letter-spacing: 1px;
+            padding-top: 7px;
+        }
+
+        .btn {
+            background: #fff;
+            color: #ffffff;
+            font-weight: 500;
+            /* width: 50%; */
+            /* gap: 5PX; */
+            border: 1px solid #222;
+            padding: 10px;
+            padding-right: 200px;
+            margin: 8px 12px;
+            text-align: center;
+            border-radius: 4px;
+            cursor: pointer;
+            border: 2px solid yellow;
+            border-radius: 40px;
+            padding-left: 10px;
+            padding-top: 3px;
+            background-color: rgba(27, 1, 100, 0.952);
+            text-transform: capitalize;
+            display: inline-block;
+            align-items: center;
+        }
+
+        .btn:hover:not([disabled]) {
+            background: rgba(27, 1, 100, 0.678);
+            color: #fff;
+
+        }
+
+        .btn:disabled {
+            cursor: no-drop;
+        }
+
+        #next-btn {
+            background-color: #001e4d;
+            color: #fff;
+            font-weight: 500;
+            border: 0;
+            padding: 10px;
+            margin: 20px auto 0;
+            border-radius: 4px;
+            cursor: pointer;
+            display: none;
+        }
+
+        .correct {
+            background: #05cf53;
+        }
+
+        .incorrect {
+            background: #f86161;
+        }
+
+        footer {
+            position: absolute;
+            bottom: 0;
+            border-top: 1px solid rgba(114, 111, 111, 0.37);
+            width: 100%;
+            background-color: rgb(255, 255, 255);
+            color: black;
+        }
+        #dot {
+            color: rgb(211, 60, 60);
+            font-weight: 600;
+        }
+        .foot-main {
+            text-align: center;
+        }
+
+        .foot-main h4 {
+         padding-top: 5px;
+            font-size: 18px;
+            text-transform: capitalize;
+            word-spacing: 2px;
+            letter-spacing: 2px;
+            margin-bottom: 2px;
+        }
+
+        .foot-main .info {
+            display: flex;
+            justify-content: center;
+            /* background-color: antiquewhite; */
+            margin-bottom:10px;
+        }
+
+        .foot-main h5 {
+            margin-bottom:10px;
+            display: flex;
+            margin-left: 100px;
+            align-items: center;
+            text-align: center;
+            font-size: 17px;
+            font-weight: 500;
+            color: rgba(0, 0, 0, 0.842);
+        }
+
+        .foot-main h5 a {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            color: rgba(0, 0, 0, 0.925);
+            text-decoration: none;
+        }
+
+        .foot-main p {
+            font-size: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <header>
+        <div class="logo">
+            <h2><span id="dot">C</span>hallenger<span id="dot">.</span></h2>
+        </div>
+        <div class="item1">
+            <a href="#">
+                <h3>home</h3>
+            </a>
+            <a href="#">
+                <h3>html</h3>
+            </a>
+            <a href="#">
+                <h3>css</h3>
+            </a>
+            <a href="#">
+                <h3>javascript</h3>
+            </a>
+            <a href="#">
+                <h3>bootstrap</h3>
+            </a>
+        </div>
+    </header> -->
+
+    <div class="app">
+        <!-- <h1>simple quiz</h1> -->
+        <div class="quiz">
+            <h2 id="question">question goes here</h2>
+            <div id="answer-buttons">
+                <button class="btn">answer 1</button>
+                <button class="btn">answer 2</button>
+                <button class="btn">answer 3</button>
+                <button class="btn">answer 4</button>
+            </div>
+            <button id="next-btn">next</button>
+        </div>
+        
+    </div>
+    <!-- <footer>
+        <div class="foot-main">
+            <h4><span id="dot">C</span>ontact more</h4>
+            <div class="info">
+                <h5>
+                    <a href="">
+                        <img src="mobile-solid.svg" alt=""> <span id="dot">P</span>hone : +91-xxx-xxx-xxxx</a>
+                </h5>
+                <h5><a href=""><img src="envelope-regular.svg" alt=""> <span id="dot">E</span>-Mail : xyz@gmail.com</a>
+                </h5>
+                <h5><a href="https://www.linkedin.com/in/neetesh-prajapati-b44469254" target="_blank"><img
+                            src="linkedin.svg" alt=""><span id="dot">L</span>inkedin : xxxxxxxx</a></h5>
+                <h5>
+                    <p>&copy copyright 2024</p>
+                </h5>
+            </div>
+        </div>
+    </footer> -->
+    <script src="script.js"></script>
+</body>
+
+</html>

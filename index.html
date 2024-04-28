@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quiz page</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+     <!-- jQuery library -->
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+     <!-- Latest compiled JavaScript -->
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        * {
+            margin: 0%;
+            padding: 0%;
+            box-sizing: border-box;
+            /* font-family: gilroy; */
+        }
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+            background-color:rgb(255, 255, 255);
+
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            z-index: 999;
+            background-color:rgb(255, 255, 255);
+            height: 90px;
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            gap: 200px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.158);
+        }
+
+        .logo {
+            /* background-color: azure; */
+            text-transform: capitalize;
+        }
+
+        .logo h2 {
+            font-size: 40px;
+            transition: all ease .5s;
+            cursor: pointer;
+            color: black;
+            font-weight: 500;
+        }
+
+        .logo h2:hover {
+            scale: .9;
+            color: rgba(0, 0, 0, 0.61);
+        }
+
+        .logo h2 #dot {
+            color: rgb(211, 60, 60);
+            font-weight: 600;
+        }
+
+        .item1 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 60px;
+            padding: 5px;
+            height: 100%;
+        }
+
+        .item1 a {
+            text-decoration: none;
+            color: rgba(0, 0, 0, 0.733);
+
+        }
+
+        .item1 a h3 {
+            text-transform: capitalize;
+            font-size: 18px;
+            transition: all ease .2s;
+
+        }
+
+        .item1 a>h3:hover {
+            border-bottom: 2px solid  rgb(211, 60, 60);
+            scale: 1.1;
+            color: rgb(211, 60, 60);
+            font-weight: 500;
+        }
+
+        .main {
+            padding-top: 15vh;
+            height: 100vh;
+            width: 100vw;
+            /* background-color: aqua; */
+        }
+
+        .main h3 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            letter-spacing: 1px;
+            margin-top: 10px;
+            text-transform: capitalize;
+            font-weight: 500;
+            font-size: 20px;
+            height: 30px;
+            color:  rgb(211, 60, 60);
+            font-weight: 600;
+       
+        }
+
+        .content-img {
+            display: flex;
+            justify-content: space-around;
+            gap: 30px;
+            /* margin: 20px 50px; */
+           margin-top: 25px;
+            margin-left: 100px;
+            padding: 10px;
+        }
+
+        .content-img img {
+            height: 380px;
+            object-fit: cover;
+            width: 650px;
+            transition: all ease .5s;
+        }
+        .content-img img:hover{
+            scale: .95;
+            cursor: pointer;
+            color: rgba(0, 0, 0, 0.61);
+        }
+        .overview {
+            width: 500px;
+            height: 200px;
+            margin: 50px 100px;
+            text-align: center;
+        }
+        #dot {
+            color: rgb(211, 60, 60);
+            font-weight: 600;
+        }
+        .overview h2 {
+            margin-top: 10px;
+            font-weight: 500;
+            font-size: 40px;
+            text-transform: capitalize;
+           
+
+        }
+
+        .overview p {
+            line-height: 24px;
+            font-size: 18px;
+            letter-spacing: 1px;
+            margin-top: 30px;
+        }
+
+        button {
+            margin-top: 30px;
+            padding: 8px;
+            border: 1px solid rgb(211, 60, 60);
+            border-radius: 10px;
+            outline: none;
+            margin-left: 30px;
+            background-color: rgb(255, 255, 255);
+        }
+
+        button a {
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 600;
+            color: rgb(211, 60, 60);
+            background-color: rgb(255, 255, 255);
+        }
+
+        button:hover {
+            transition: all .5s;
+            background-color: rgb(211, 60, 60);
+        }
+
+        button:hover>a {
+            color: rgb(255, 255, 255);
+            background-color: rgb(211, 60, 60);
+            text-decoration: none;
+            transition: all .5s;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            border-top: 1px solid rgba(114, 111, 111, 0.37);
+            width: 100%;
+            /* background-color: rgb(163, 54, 54); */
+            color: black;
+        }
+
+        .foot-main {
+            text-align: center;
+        }
+
+        .foot-main h4 {
+         padding-top: 5px;
+            font-size: 18px;
+            text-transform: capitalize;
+            word-spacing: 2px;
+            letter-spacing: 2px;
+            margin-bottom: 2px;
+        }
+
+        .foot-main .info {
+            display: flex;
+            justify-content: center;
+            /* background-color: antiquewhite; */
+            margin-bottom:10px;
+        }
+
+        .foot-main h5 {
+            margin-bottom:10px;
+            display: flex;
+            margin-left: 100px;
+            align-items: center;
+            text-align: center;
+            font-size: 17px;
+            font-weight: 500;
+            color: rgba(0, 0, 0, 0.842);
+        }
+
+        .foot-main h5 a {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            color: rgba(0, 0, 0, 0.925);
+            text-decoration: none;
+        }
+
+        .foot-main p {
+            font-size: 15px;
+        }
+        
+/* user selection */
+       ::selection{
+        color: aliceblue;
+        background-color: rgb(211, 60, 60);
+       }
+       
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <h2><span id="dot">C</span>hallenger<span id="dot">.</span></h2>
+        </div>
+        <div class="item1">
+            <a href="#">
+                <h3>home</h3>
+            </a>
+            <a href="#">
+                <h3>html</h3>
+            </a>
+            <a href="#">
+                <h3>css</h3>
+            </a>
+            <a href="#">
+                <h3>javascript</h3>
+            </a>
+            <a href="#">
+                <h3>bootstrap</h3>
+            </a>
+        </div>
+    </header>
+    <div class="main">
+        <h3 id="head">basic to advance quiz challenge at challenger web...</h3>
+        <div class="content-img">
+            <img src="stdy img.jpeg" alt="">
+
+            <div class="overview">
+
+                <h2><span id="dot">O</span>verview</h2>
+                <p>Welcome to our quiz challenge program! <br> This overview serves as a concise introduction to what you
+                    can expect our quiz challenge competation. <br>
+                - Enhance the problem solving skill <br>
+                </p>
+                <button id="btn"><a href="quiz.html" target="_blank"> Start Quiz</a></button>
+                <!-- <button id="btn"><a href="#">Learn more</a></button> -->
+            </div>
+
+        </div>
+        <footer>
+            <div class="foot-main">
+                <h4><span id="dot">C</span>ontact more</h4>
+                <div class="info">
+                    <h5>
+                        <a href="">
+                            <img src="mobile-solid.svg" alt=""> <span id="dot">P</span>hone : +91-xxx-xxx-xxxx</a>
+                    </h5>
+                    <h5><a href=""><img src="envelope-regular.svg" alt=""> <span id="dot">E</span>-Mail : xyz@gmail.com</a>
+                    </h5>
+                    <h5><a href="https://www.linkedin.com/in/neetesh-prajapati-b44469254" target="_blank"><img
+                                src="linkedin.svg" alt=""><span id="dot">L</span>inkedin : xxxxxxxx</a></h5>
+                    <h5>
+                        <p>&copy copyright 2024</p>
+                    </h5>
+                </div>
+            </div>
+        </footer>
+    </div>
+<!-- cdn gsap -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="gsap.js"></script>
+</body>
+</html>
